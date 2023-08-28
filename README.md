@@ -4,7 +4,7 @@ Welcome to my GitHub portfolio repository! 🌟 This repository showcases a acco
 
 ## Demo
 
-Check out the live demo of the app [here](https://ashishpatil7507.github.io/Portfolip-ashish/).
+Check out the live demo of the app [here](https://ashishpatil7507.github.io/Portfolio-ashish/).
 
 # About Me
 
