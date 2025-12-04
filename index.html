@@ -1,57 +1,860 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" alt="Stylesheet" >
-<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Portfolio By Ashok</title>
+    <title>Ashish Patil | Cybersecurity Professional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00ff41;
+            --secondary: #008f11;
+            --accent: #003b00;
+            --dark: #0a0a0a;
+            --darker: #050505;
+            --light: #f0f0f0;
+            --gray: #333;
+            --glow: 0 0 10px var(--primary), 0 0 20px var(--primary);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 255, 65, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 143, 17, 0.05) 0%, transparent 20%);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            text-shadow: var(--glow);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            font-family: 'Exo 2', sans-serif;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header & Logo */
+        header {
+            background-color: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid var(--secondary);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--primary);
+            font-size: 2rem;
+            animation: pulse 2s infinite;
+        }
+        
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .profile-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            object-fit: cover;
+            box-shadow: var(--glow);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(to bottom, rgba(5, 5, 5, 0.9), rgba(10, 10, 10, 0.8));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0L100,100M100,0L0,100" stroke="%23008000" stroke-width="0.5" opacity="0.3"/></svg>');
+            opacity: 0.1;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .hero-text {
+            flex: 1;
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .main-photo {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            object-fit: cover;
+            box-shadow: var(--glow);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+        
+        .title {
+            color: var(--secondary);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .typing-text {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.2rem;
+            color: var(--primary);
+            border-right: 2px solid var(--primary);
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+            max-width: fit-content;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary);
+            color: var(--dark);
+            box-shadow: var(--glow);
+            transform: translateY(-3px);
+        }
+        
+        /* Sections */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary);
+            box-shadow: var(--glow);
+        }
+        
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .skill-category {
+            background-color: rgba(0, 59, 0, 0.2);
+            padding: 25px;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 143, 17, 0.3);
+            transition: transform 0.3s;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: var(--glow);
+        }
+        
+        .skill-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .skill-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed rgba(0, 143, 17, 0.3);
+            font-family: 'Share Tech Mono', monospace;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .skill-list li::before {
+            content: '>';
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Experience & Projects */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: var(--secondary);
+        }
+        
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+            padding-left: 80px;
+        }
+        
+        .timeline-date {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            padding: 5px 10px;
+            background-color: var(--accent);
+            color: var(--primary);
+            font-family: 'Share Tech Mono', monospace;
+            text-align: center;
+            border-radius: 3px;
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+        }
+        
+        .timeline-content {
+            background-color: rgba(0, 59, 0, 0.2);
+            padding: 25px;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 143, 17, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .timeline-content:hover {
+            border-color: var(--primary);
+            box-shadow: var(--glow);
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 10px;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .project-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .project-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .cert-card {
+            background-color: rgba(0, 59, 0, 0.2);
+            padding: 25px;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 143, 17, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .cert-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: var(--glow);
+        }
+        
+        .cert-card h3 {
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        .cert-org {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--light);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .cert-year {
+            color: var(--primary);
+            font-family: 'Share Tech Mono', monospace;
+        }
+        
+        /* Contact */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            color: var(--primary);
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+            color: var(--dark);
+            transform: translateY(-5px);
+            box-shadow: var(--glow);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--darker);
+            padding: 50px 0 30px;
+            text-align: center;
+            border-top: 1px solid var(--secondary);
+        }
+        
+        .footer-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .copyright {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--secondary);
+            margin-top: 30px;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary) }
+        }
+        
+        /* Matrix Animation */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.03;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--darker);
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+                border-top: 1px solid var(--secondary);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                padding-left: 60px;
+            }
+            
+            .timeline-date {
+                width: 40px;
+                padding: 5px;
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .main-photo {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
-      
+    <!-- Matrix Background -->
+    <canvas id="matrix-bg" class="matrix-bg"></canvas>
     
-    <header class="header">
-        <!-- <a href="#" class="logo"><b>Ashish.</b></a> -->
-        
-        <nev class="nevbar">
-            <a href="#" class="active">Home</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Resume</a>
-            <a href="#">Portfolio</a>
-            <a href="#">Contact Me</a> 
-        </nev>
-       
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-section">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <div class="logo-text">AP</div>
+                </div>
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ashish Patil" class="profile-img">
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     
-        <section class="home">
-            <div class="home-content">
-                <h1> Hi, I'm Ashish Patil</h1>
-                <h3>Front End Developer</h3>
-                <p>Apart from coding I always enjoy meeting with new people and 
-                hearing about their perspectives about how different things work 🤓.<br> Please don’t hesitate to reach out if you want to share thoughts
-                 about emerging tech or anything else.</p>
-                 <div class="btn-box">
-                    <a href="#">Hire Me</a>
-                    <a href="#">Let's Connect</a>
-
-                 </div>
-          
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Ashish Ramling Patil</h1>
+                    <span class="title">Cybersecurity & Digital Forensics Professional</span>
+                    <div class="typing-text">Penetration Testing | Vulnerability Assessment | Python Security Automation</div>
+                    <p>Cybersecurity professional with hands-on experience in offensive security, digital forensics, and security automation. Skilled in Burp Suite, Nmap, Metasploit, Wireshark, and Python-based security tools. Published researcher with conference presentations.</p>
+                    <a href="#contact" class="btn">Get In Touch</a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ashish Patil" class="main-photo">
+                </div>
             </div>
-
-            <img src="photo/me.png" alt="Ashish Pic" class="me-pic">
-
-            <div class="home-sci">
-                <!-- <a href="#"><i class='bx bxl-facebook-circle'></i></a> -->
-                <a href="https://www.linkedin.com/in/ashishpatil7507"><img src="photo/linkedIn.png" alt="linkdin" class="src"></i></a>
-                <a href="https://www.instagram.com/ashishpatil.officiall/"><img src="photo/instagram.png" alt="instagram" class="src"></i></a>
-                <!-- <a href="#"><<i class='bx bxl-twitter' style='color:#ffffff' ></i></i></a> -->
-                <a href="https://t.me/phoenixashok007"><img src="photo/telegram.png" alt="telegram" class="src"></i></a>
-            </div>
-        </section>
+        </div>
+    </section>
     
-       
-</body>
-</html>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div>
+                    <p>I am a cybersecurity and digital forensics professional with hands-on experience in penetration testing, vulnerability assessment, and Python-based security automation. My expertise includes offensive security techniques, incident response, SIEM monitoring, and network defense.</p>
+                    <p>Currently pursuing a PG Diploma in Cybersecurity with specialization in Offensive Security & Red Teaming, I hold a B.E. in Computer Science with Honours in Cybersecurity & Digital Forensics. I'm passionate about researching and implementing security solutions to protect digital assets.</p>
+                    <p>I have published cybersecurity research in international journals and presented at conferences. My technical skills span across offensive and defensive security, with proficiency in tools like Burp Suite, Metasploit, Nessus, and Wireshark.</p>
+                    
+                    <div class="skills-container">
+                        <div class="skill-category">
+                            <h3>Offensive Security</h3>
+                            <ul class="skill-list">
+                                <li>VAPT (Vulnerability Assessment & Penetration Testing)</li>
+                                <li>XSS, SQL Injection, CSRF, IDOR</li>
+                                <li>Privilege Escalation</li>
+                                <li>Malware Analysis</li>
+                                <li>Exploit Development</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h3>Tools & Technologies</h3>
+                            <ul class="skill-list">
+                                <li>Burp Suite, Metasploit, Nessus</li>
+                                <li>OWASP ZAP, Nmap, Wireshark</li>
+                                <li>SQLMap, Hydra, JohnTheRipper</li>
+                                <li>Autopsy, Volatility, FTK Imager</li>
+                                <li>Kali Linux, Ubuntu, VMware</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h3>Languages & Scripting</h3>
+                            <ul class="skill-list">
+                                <li>Python (Security Automation)</li>
+                                <li>Bash, PowerShell</li>
+                                <li>Java</li>
+                                <li>HTML/CSS/JavaScript</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>Education</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2024-25</div>
+                            <div class="timeline-content">
+                                <h4>PG Diploma in Cybersecurity</h4>
+                                <p>BSE Institute Ltd., University of Mumbai</p>
+                                <p>Specialization: Offensive Security & Red Teaming</p>
+                                <p>CGPA: 9.4/10</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">2021-24</div>
+                            <div class="timeline-content">
+                                <h4>B.E. in Computer Science</h4>
+                                <p>Sinhgad College of Engineering, University of Pune</p>
+                                <p>Honours in Cybersecurity & Digital Forensics</p>
+                                <p>CGPA: 8.2/10</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">2018-21</div>
+                            <div class="timeline-content">
+                                <h4>Diploma in Computer Technology</h4>
+                                <p>Government Polytechnic, Solapur (MSBTE)</p>
+                                <p>Percentage: 80.74%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience & Projects -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience & Projects</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Jul-Oct 2025</div>
+                    <div class="timeline-content">
+                        <h3>Offensive Security Intern</h3>
+                        <h4>InLightnX Global Pvt. Ltd.</h4>
+                        <p>Designed and implemented a PDF Security Intelligence Platform for automated PDF vulnerability analysis, password recovery, hidden-content detection, and metadata forensics.</p>
+                        <p><strong>Technologies:</strong> Python, PyPDF2, pdfplumber, Tkinter</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> View Presentation</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Feb-Jun 2023</div>
+                    <div class="timeline-content">
+                        <h3>Ethical Hacking Intern</h3>
+                        <h4>Technoflacks EduTech</h4>
+                        <p>Performed web application penetration testing and vulnerability assessment using OWASP Top 10 methodologies.</p>
+                        <p><strong>Tools:</strong> Burp Suite, Nmap, Metasploit, SQLMap</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-linkedin"></i> View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 60px; margin-bottom: 30px;">Key Projects</h3>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>PDF Security Intelligence Platform</h3>
+                    <p>Automated platform for PDF vulnerability analysis, password recovery, and metadata forensics with malware detection and report generation.</p>
+                    <p><strong>Tech:</strong> Python, PyPDF2, pdfplumber, Tkinter</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> View Project</a>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>SSH Botnet Research Simulation</h3>
+                    <p>Academic research simulating SSH-based attacks in a controlled environment to analyze attack patterns and detection techniques.</p>
+                    <p><strong>Tech:</strong> Python, Paramiko, Socket, Network Analysis</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> View Presentation</a>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>SecureStego – Image Steganography Tool</h3>
+                    <p>AES-encrypted image steganography system for secure text embedding and extraction.</p>
+                    <p><strong>Tech:</strong> Python, Pillow, Cryptography</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Nmap Navigator – GUI Reconnaissance Tool</h3>
+                    <p>GUI-based Nmap automation tool with scan scheduling, host discovery, and vulnerability reporting.</p>
+                    <p><strong>Tech:</strong> Python, Nmap API, Tkinter</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Certifications -->
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <h3>CEH v13 with AI</h3>
+                    <div class="cert-org">EC-Council</div>
+                    <p>Certified Ethical Hacker with AI integration focus</p>
+                    <div class="cert-year">2025</div>
+                </div>
+                
+                <div class="cert-card">
+                    <h3>CEH Master (Practical)</h3>
+                    <div class="cert-org">EC-Council</div>
+                    <p>Offensive Security & Red Teaming (In Progress)</p>
+                    <div class="cert-year">2025</div>
+                </div>
+                
+                <div class="cert-card">
+                    <h3>CompTIA Security+ (SY0-701)</h3>
+                    <div class="cert-org">DION Bootcamp</div>
+                    <p>Information Security & Risk Management</p>
+                    <div class="cert-year">2024</div>
+                </div>
