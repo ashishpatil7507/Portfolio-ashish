@@ -7,17 +7,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Exo+2:wght@300;400;600&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #00ff41;
-            --secondary: #008f11;
-            --accent: #003b00;
-            --dark: #0a0a0a;
-            --darker: #050505;
-            --light: #f0f0f0;
-            --gray: #333;
-            --glow: 0 0 10px var(--primary), 0 0 20px var(--primary);
+            --primary: #00e5ff;      /* Aqua/Cyan */
+            --secondary: #9d4edd;    /* Purple */
+            --accent: #ff6d00;       /* Orange */
+            --accent2: #ffbe0b;      /* Yellow */
+            --dark: #0a1929;         /* Dark Blue */
+            --darker: #071421;       /* Darker Blue */
+            --light: #f8f9fa;        /* Light */
+            --gray: #2a3d56;         /* Gray Blue */
+            --card-bg: rgba(10, 25, 41, 0.85);
+            --gradient-primary: linear-gradient(135deg, #00e5ff, #0066ff);
+            --gradient-secondary: linear-gradient(135deg, #9d4edd, #560bad);
+            --gradient-accent: linear-gradient(135deg, #ff6d00, #ff9e00);
+            --glow-primary: 0 0 15px rgba(0, 229, 255, 0.7);
+            --glow-secondary: 0 0 15px rgba(157, 78, 221, 0.7);
+            --glow-accent: 0 0 15px rgba(255, 109, 0, 0.7);
         }
         
         * {
@@ -33,16 +40,37 @@
             line-height: 1.6;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(0, 255, 65, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(0, 143, 17, 0.05) 0%, transparent 20%);
+                radial-gradient(circle at 10% 20%, rgba(0, 229, 255, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 90% 80%, rgba(157, 78, 221, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 50% 50%, rgba(255, 109, 0, 0.05) 0%, transparent 30%);
         }
         
         h1, h2, h3, h4 {
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             margin-bottom: 1rem;
+        }
+        
+        h1 {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        h2 {
+            background: linear-gradient(90deg, var(--accent2), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        h3 {
             color: var(--primary);
-            text-shadow: var(--glow);
+        }
+        
+        h4 {
+            color: var(--secondary);
         }
         
         p {
@@ -59,12 +87,13 @@
         
         /* Header & Logo */
         header {
-            background-color: rgba(10, 10, 10, 0.95);
-            border-bottom: 1px solid var(--secondary);
+            background-color: rgba(7, 20, 33, 0.95);
+            border-bottom: 1px solid rgba(0, 229, 255, 0.2);
             position: fixed;
             width: 100%;
             z-index: 1000;
             backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
         }
         
         .header-container {
@@ -87,18 +116,21 @@
         }
         
         .logo-icon {
-            color: var(--primary);
             font-size: 2rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             animation: pulse 2s infinite;
         }
         
         .logo-text {
             font-family: 'Orbitron', sans-serif;
             font-weight: 900;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -110,7 +142,7 @@
             border-radius: 50%;
             border: 2px solid var(--primary);
             object-fit: cover;
-            box-shadow: var(--glow);
+            box-shadow: var(--glow-primary);
         }
         
         nav ul {
@@ -126,7 +158,7 @@
             font-size: 1.1rem;
             position: relative;
             padding: 5px 0;
-            transition: color 0.3s;
+            transition: all 0.3s;
         }
         
         nav a:hover {
@@ -140,7 +172,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--primary);
+            background: var(--gradient-accent);
             transition: width 0.3s;
         }
         
@@ -160,7 +192,7 @@
         /* Hero Section */
         .hero {
             padding: 180px 0 100px;
-            background: linear-gradient(to bottom, rgba(5, 5, 5, 0.9), rgba(10, 10, 10, 0.8));
+            background: linear-gradient(to bottom, rgba(7, 20, 33, 0.95), rgba(10, 25, 41, 0.9));
             position: relative;
             overflow: hidden;
         }
@@ -172,7 +204,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0L100,100M100,0L0,100" stroke="%23008000" stroke-width="0.5" opacity="0.3"/></svg>');
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0L100,100M100,0L0,100M50,0V100M0,50H100" stroke="%2300e5ff" stroke-width="0.3" opacity="0.2"/></svg>');
             opacity: 0.1;
         }
         
@@ -189,15 +221,18 @@
         .hero-image {
             flex: 1;
             text-align: center;
+            position: relative;
         }
         
         .main-photo {
             width: 300px;
             height: 300px;
             border-radius: 50%;
-            border: 3px solid var(--primary);
+            border: 4px solid transparent;
+            background: linear-gradient(var(--dark), var(--dark)) padding-box,
+                        var(--gradient-primary) border-box;
             object-fit: cover;
-            box-shadow: var(--glow);
+            box-shadow: var(--glow-primary);
             animation: float 6s ease-in-out infinite;
         }
         
@@ -208,7 +243,7 @@
         }
         
         .title {
-            color: var(--secondary);
+            color: var(--accent2);
             font-family: 'Share Tech Mono', monospace;
             font-size: 1.5rem;
             margin-bottom: 20px;
@@ -216,22 +251,23 @@
         }
         
         .typing-text {
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 1.2rem;
-            color: var(--primary);
-            border-right: 2px solid var(--primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.3rem;
+            color: var(--secondary);
+            border-right: 2px solid var(--secondary);
             white-space: nowrap;
             overflow: hidden;
             animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
             max-width: fit-content;
+            margin-bottom: 20px;
         }
         
         .btn {
             display: inline-block;
             padding: 12px 30px;
-            background-color: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
             text-decoration: none;
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
@@ -241,13 +277,22 @@
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
         }
         
         .btn:hover {
-            background-color: var(--primary);
-            color: var(--dark);
-            box-shadow: var(--glow);
             transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 229, 255, 0.5);
+        }
+        
+        .btn-secondary {
+            background: var(--gradient-secondary);
+            box-shadow: 0 4px 15px rgba(157, 78, 221, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            box-shadow: 0 8px 20px rgba(157, 78, 221, 0.5);
         }
         
         /* Sections */
@@ -269,9 +314,9 @@
             left: 50%;
             transform: translateX(-50%);
             width: 100px;
-            height: 3px;
-            background-color: var(--primary);
-            box-shadow: var(--glow);
+            height: 4px;
+            background: var(--gradient-accent);
+            border-radius: 2px;
         }
         
         /* About */
@@ -289,17 +334,30 @@
         }
         
         .skill-category {
-            background-color: rgba(0, 59, 0, 0.2);
+            background-color: var(--card-bg);
             padding: 25px;
-            border-radius: 5px;
-            border: 1px solid rgba(0, 143, 17, 0.3);
-            transition: transform 0.3s;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary);
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+        }
+        
+        .skill-category:nth-child(2) {
+            border-left-color: var(--secondary);
+        }
+        
+        .skill-category:nth-child(3) {
+            border-left-color: var(--accent);
+        }
+        
+        .skill-category:nth-child(4) {
+            border-left-color: var(--accent2);
         }
         
         .skill-category:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: var(--glow);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
         
         .skill-list {
@@ -308,16 +366,16 @@
         }
         
         .skill-list li {
-            padding: 8px 0;
-            border-bottom: 1px dashed rgba(0, 143, 17, 0.3);
-            font-family: 'Share Tech Mono', monospace;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-family: 'JetBrains Mono', monospace;
             position: relative;
-            padding-left: 25px;
+            padding-left: 30px;
         }
         
         .skill-list li::before {
-            content: '>';
-            color: var(--primary);
+            content: '▸';
+            color: var(--accent2);
             position: absolute;
             left: 0;
         }
@@ -335,8 +393,8 @@
             left: 30px;
             top: 0;
             height: 100%;
-            width: 2px;
-            background-color: var(--secondary);
+            width: 3px;
+            background: var(--gradient-secondary);
         }
         
         .timeline-item {
@@ -350,26 +408,28 @@
             left: 0;
             top: 0;
             width: 60px;
-            padding: 5px 10px;
-            background-color: var(--accent);
-            color: var(--primary);
-            font-family: 'Share Tech Mono', monospace;
+            padding: 8px 12px;
+            background: var(--gradient-accent);
+            color: white;
+            font-family: 'JetBrains Mono', monospace;
             text-align: center;
-            border-radius: 3px;
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+            border-radius: 6px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(255, 109, 0, 0.4);
         }
         
         .timeline-content {
-            background-color: rgba(0, 59, 0, 0.2);
+            background-color: var(--card-bg);
             padding: 25px;
-            border-radius: 5px;
-            border: 1px solid rgba(0, 143, 17, 0.3);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 229, 255, 0.2);
             transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .timeline-content:hover {
             border-color: var(--primary);
-            box-shadow: var(--glow);
+            box-shadow: var(--glow-primary);
         }
         
         .timeline-content h3 {
@@ -380,20 +440,26 @@
             display: flex;
             gap: 15px;
             margin-top: 15px;
+            flex-wrap: wrap;
         }
         
         .project-link {
-            color: var(--primary);
+            color: var(--secondary);
             text-decoration: none;
-            font-family: 'Share Tech Mono', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.9rem;
             display: flex;
             align-items: center;
             gap: 5px;
+            padding: 5px 12px;
+            border: 1px solid var(--secondary);
+            border-radius: 4px;
+            transition: all 0.3s;
         }
         
         .project-link:hover {
-            text-decoration: underline;
+            background-color: var(--secondary);
+            color: white;
         }
         
         /* Certifications */
@@ -404,34 +470,58 @@
         }
         
         .cert-card {
-            background-color: rgba(0, 59, 0, 0.2);
+            background-color: var(--card-bg);
             padding: 25px;
-            border-radius: 5px;
-            border: 1px solid rgba(0, 143, 17, 0.3);
+            border-radius: 10px;
+            border-top: 5px solid var(--primary);
             transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+        }
+        
+        .cert-card:nth-child(2) {
+            border-top-color: var(--secondary);
+        }
+        
+        .cert-card:nth-child(3) {
+            border-top-color: var(--accent);
+        }
+        
+        .cert-card:nth-child(4) {
+            border-top-color: var(--accent2);
+        }
+        
+        .cert-card:nth-child(5) {
+            border-top-color: var(--primary);
         }
         
         .cert-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: var(--glow);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
         
         .cert-card h3 {
-            color: var(--secondary);
+            color: var(--light);
             font-size: 1.2rem;
+            margin-bottom: 5px;
         }
         
         .cert-org {
-            font-family: 'Share Tech Mono', monospace;
-            color: var(--light);
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent2);
             font-size: 0.9rem;
             margin-bottom: 10px;
         }
         
         .cert-year {
+            display: inline-block;
+            padding: 3px 10px;
+            background: rgba(0, 229, 255, 0.1);
             color: var(--primary);
-            font-family: 'Share Tech Mono', monospace;
+            font-family: 'JetBrains Mono', monospace;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 10px;
         }
         
         /* Contact */
@@ -454,15 +544,16 @@
         }
         
         .contact-icon {
-            color: var(--primary);
             font-size: 1.5rem;
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            border: 1px solid var(--primary);
             display: flex;
             align-items: center;
             justify-content: center;
+            background: var(--gradient-primary);
+            color: white;
+            flex-shrink: 0;
         }
         
         .social-links {
@@ -475,21 +566,27 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            border: 1px solid var(--primary);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary);
+            color: white;
             text-decoration: none;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             transition: all 0.3s;
+            background: var(--gradient-primary);
+        }
+        
+        .social-link:nth-child(2) {
+            background: var(--gradient-secondary);
+        }
+        
+        .social-link:nth-child(3) {
+            background: var(--gradient-accent);
         }
         
         .social-link:hover {
-            background-color: var(--primary);
-            color: var(--dark);
-            transform: translateY(-5px);
-            box-shadow: var(--glow);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
         
         /* Footer */
@@ -497,32 +594,67 @@
             background-color: var(--darker);
             padding: 50px 0 30px;
             text-align: center;
-            border-top: 1px solid var(--secondary);
+            border-top: 1px solid rgba(0, 229, 255, 0.2);
         }
         
         .footer-logo {
             font-family: 'Orbitron', sans-serif;
             font-weight: 900;
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 20px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
         
         .copyright {
-            font-family: 'Share Tech Mono', monospace;
-            color: var(--secondary);
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent2);
             margin-top: 30px;
             font-size: 0.9rem;
         }
         
+        /* Color Tags */
+        .color-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .tag-primary {
+            background: rgba(0, 229, 255, 0.15);
+            color: var(--primary);
+            border: 1px solid rgba(0, 229, 255, 0.3);
+        }
+        
+        .tag-secondary {
+            background: rgba(157, 78, 221, 0.15);
+            color: var(--secondary);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+        }
+        
+        .tag-accent {
+            background: rgba(255, 109, 0, 0.15);
+            color: var(--accent);
+            border: 1px solid rgba(255, 109, 0, 0.3);
+        }
+        
+        .tag-accent2 {
+            background: rgba(255, 190, 11, 0.15);
+            color: var(--accent2);
+            border: 1px solid rgba(255, 190, 11, 0.3);
+        }
+        
         /* Animations */
         @keyframes pulse {
-            0% { opacity: 0.7; }
-            50% { opacity: 1; }
-            100% { opacity: 0.7; }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
         
         @keyframes float {
@@ -538,7 +670,7 @@
         
         @keyframes blink-caret {
             from, to { border-color: transparent }
-            50% { border-color: var(--primary) }
+            50% { border-color: var(--secondary) }
         }
         
         /* Matrix Animation */
@@ -550,7 +682,7 @@
             height: 100%;
             pointer-events: none;
             z-index: -1;
-            opacity: 0.03;
+            opacity: 0.05;
         }
         
         /* Responsive */
@@ -580,7 +712,7 @@
                 flex-direction: column;
                 padding: 20px;
                 text-align: center;
-                border-top: 1px solid var(--secondary);
+                border-top: 1px solid rgba(0, 229, 255, 0.2);
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
             }
             
@@ -601,8 +733,8 @@
             }
             
             .timeline-date {
-                width: 40px;
-                padding: 5px;
+                width: 50px;
+                padding: 6px 8px;
                 font-size: 0.8rem;
             }
         }
@@ -620,6 +752,10 @@
             .section-title {
                 font-size: 1.8rem;
             }
+            
+            .skills-container, .cert-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -633,9 +769,9 @@
             <div class="logo-section">
                 <div class="logo">
                     <div class="logo-icon">
-                        <i class="fas fa-user-secret"></i>
+                        <i class="fas fa-user-shield"></i>
                     </div>
-                    <div class="logo-text">AP</div>
+                    <div class="logo-text">AP | CyberSec</div>
                 </div>
                 <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ashish Patil" class="profile-img">
             </div>
@@ -667,6 +803,7 @@
                     <div class="typing-text">Penetration Testing | Vulnerability Assessment | Python Security Automation</div>
                     <p>Cybersecurity professional with hands-on experience in offensive security, digital forensics, and security automation. Skilled in Burp Suite, Nmap, Metasploit, Wireshark, and Python-based security tools. Published researcher with conference presentations.</p>
                     <a href="#contact" class="btn">Get In Touch</a>
+                    <a href="#projects" class="btn btn-secondary">View Projects</a>
                 </div>
                 <div class="hero-image">
                     <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ashish Patil" class="main-photo">
@@ -683,38 +820,54 @@
                 <div>
                     <p>I am a cybersecurity and digital forensics professional with hands-on experience in penetration testing, vulnerability assessment, and Python-based security automation. My expertise includes offensive security techniques, incident response, SIEM monitoring, and network defense.</p>
                     <p>Currently pursuing a PG Diploma in Cybersecurity with specialization in Offensive Security & Red Teaming, I hold a B.E. in Computer Science with Honours in Cybersecurity & Digital Forensics. I'm passionate about researching and implementing security solutions to protect digital assets.</p>
-                    <p>I have published cybersecurity research in international journals and presented at conferences. My technical skills span across offensive and defensive security, with proficiency in tools like Burp Suite, Metasploit, Nessus, and Wireshark.</p>
                     
                     <div class="skills-container">
                         <div class="skill-category">
-                            <h3>Offensive Security</h3>
+                            <h3><i class="fas fa-crosshairs"></i> Offensive Security</h3>
                             <ul class="skill-list">
                                 <li>VAPT (Vulnerability Assessment & Penetration Testing)</li>
                                 <li>XSS, SQL Injection, CSRF, IDOR</li>
                                 <li>Privilege Escalation</li>
                                 <li>Malware Analysis</li>
                                 <li>Exploit Development</li>
+                                <div style="margin-top: 10px;">
+                                    <span class="color-tag tag-primary">Pen Testing</span>
+                                    <span class="color-tag tag-secondary">Vulnerability</span>
+                                    <span class="color-tag tag-accent">Exploit Dev</span>
+                                </div>
                             </ul>
                         </div>
                         
                         <div class="skill-category">
-                            <h3>Tools & Technologies</h3>
+                            <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
                             <ul class="skill-list">
                                 <li>Burp Suite, Metasploit, Nessus</li>
                                 <li>OWASP ZAP, Nmap, Wireshark</li>
                                 <li>SQLMap, Hydra, JohnTheRipper</li>
                                 <li>Autopsy, Volatility, FTK Imager</li>
                                 <li>Kali Linux, Ubuntu, VMware</li>
+                                <div style="margin-top: 10px;">
+                                    <span class="color-tag tag-primary">Burp Suite</span>
+                                    <span class="color-tag tag-secondary">Metasploit</span>
+                                    <span class="color-tag tag-accent">Nmap</span>
+                                    <span class="color-tag tag-accent2">Wireshark</span>
+                                </div>
                             </ul>
                         </div>
                         
                         <div class="skill-category">
-                            <h3>Languages & Scripting</h3>
+                            <h3><i class="fas fa-code"></i> Languages & Scripting</h3>
                             <ul class="skill-list">
                                 <li>Python (Security Automation)</li>
                                 <li>Bash, PowerShell</li>
                                 <li>Java</li>
                                 <li>HTML/CSS/JavaScript</li>
+                                <div style="margin-top: 10px;">
+                                    <span class="color-tag tag-primary">Python</span>
+                                    <span class="color-tag tag-secondary">Bash</span>
+                                    <span class="color-tag tag-accent">Java</span>
+                                    <span class="color-tag tag-accent2">PowerShell</span>
+                                </div>
                             </ul>
                         </div>
                     </div>
@@ -730,6 +883,7 @@
                                 <p>BSE Institute Ltd., University of Mumbai</p>
                                 <p>Specialization: Offensive Security & Red Teaming</p>
                                 <p>CGPA: 9.4/10</p>
+                                <span class="color-tag tag-primary">Ongoing</span>
                             </div>
                         </div>
                         
@@ -740,6 +894,7 @@
                                 <p>Sinhgad College of Engineering, University of Pune</p>
                                 <p>Honours in Cybersecurity & Digital Forensics</p>
                                 <p>CGPA: 8.2/10</p>
+                                <span class="color-tag tag-secondary">Completed</span>
                             </div>
                         </div>
                         
@@ -749,6 +904,7 @@
                                 <h4>Diploma in Computer Technology</h4>
                                 <p>Government Polytechnic, Solapur (MSBTE)</p>
                                 <p>Percentage: 80.74%</p>
+                                <span class="color-tag tag-accent">Completed</span>
                             </div>
                         </div>
                     </div>
@@ -769,7 +925,7 @@
                         <h3>Offensive Security Intern</h3>
                         <h4>InLightnX Global Pvt. Ltd.</h4>
                         <p>Designed and implemented a PDF Security Intelligence Platform for automated PDF vulnerability analysis, password recovery, hidden-content detection, and metadata forensics.</p>
-                        <p><strong>Technologies:</strong> Python, PyPDF2, pdfplumber, Tkinter</p>
+                        <p><strong>Technologies:</strong> <span class="color-tag tag-primary">Python</span> <span class="color-tag tag-secondary">PyPDF2</span> <span class="color-tag tag-accent">pdfplumber</span> <span class="color-tag tag-accent2">Tkinter</span></p>
                         <div class="project-links">
                             <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> View Presentation</a>
                         </div>
@@ -782,7 +938,7 @@
                         <h3>Ethical Hacking Intern</h3>
                         <h4>Technoflacks EduTech</h4>
                         <p>Performed web application penetration testing and vulnerability assessment using OWASP Top 10 methodologies.</p>
-                        <p><strong>Tools:</strong> Burp Suite, Nmap, Metasploit, SQLMap</p>
+                        <p><strong>Tools:</strong> <span class="color-tag tag-primary">Burp Suite</span> <span class="color-tag tag-secondary">Nmap</span> <span class="color-tag tag-accent">Metasploit</span> <span class="color-tag tag-accent2">SQLMap</span></p>
                         <div class="project-links">
                             <a href="#" class="project-link"><i class="fab fa-linkedin"></i> View Certificate</a>
                         </div>
@@ -794,67 +950,26 @@
             
             <div class="skills-container">
                 <div class="skill-category">
-                    <h3>PDF Security Intelligence Platform</h3>
+                    <h3><i class="fas fa-file-pdf"></i> PDF Security Intelligence Platform</h3>
                     <p>Automated platform for PDF vulnerability analysis, password recovery, and metadata forensics with malware detection and report generation.</p>
-                    <p><strong>Tech:</strong> Python, PyPDF2, pdfplumber, Tkinter</p>
+                    <p><strong>Tech:</strong> <span class="color-tag tag-primary">Python</span> <span class="color-tag tag-secondary">PyPDF2</span> <span class="color-tag tag-accent">pdfplumber</span> <span class="color-tag tag-accent2">Tkinter</span></p>
                     <div class="project-links">
                         <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> View Project</a>
                     </div>
                 </div>
                 
                 <div class="skill-category">
-                    <h3>SSH Botnet Research Simulation</h3>
+                    <h3><i class="fas fa-network-wired"></i> SSH Botnet Research Simulation</h3>
                     <p>Academic research simulating SSH-based attacks in a controlled environment to analyze attack patterns and detection techniques.</p>
-                    <p><strong>Tech:</strong> Python, Paramiko, Socket, Network Analysis</p>
+                    <p><strong>Tech:</strong> <span class="color-tag tag-primary">Python</span> <span class="color-tag tag-secondary">Paramiko</span> <span class="color-tag tag-accent">Socket</span> <span class="color-tag tag-accent2">Network Analysis</span></p>
                     <div class="project-links">
                         <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> View Presentation</a>
                     </div>
                 </div>
                 
                 <div class="skill-category">
-                    <h3>SecureStego – Image Steganography Tool</h3>
+                    <h3><i class="fas fa-lock"></i> SecureStego – Image Steganography</h3>
                     <p>AES-encrypted image steganography system for secure text embedding and extraction.</p>
-                    <p><strong>Tech:</strong> Python, Pillow, Cryptography</p>
+                    <p><strong>Tech:</strong> <span class="color-tag tag-primary">Python</span> <span class="color-tag tag-secondary">Pillow</span> <span class="color-tag tag-accent">Cryptography</span></p>
                     <div class="project-links">
-                        <a href="#" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Nmap Navigator – GUI Reconnaissance Tool</h3>
-                    <p>GUI-based Nmap automation tool with scan scheduling, host discovery, and vulnerability reporting.</p>
-                    <p><strong>Tech:</strong> Python, Nmap API, Tkinter</p>
-                    <div class="project-links">
-                        <a href="#" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Certifications -->
-    <section id="certifications">
-        <div class="container">
-            <h2 class="section-title">Certifications</h2>
-            
-            <div class="cert-grid">
-                <div class="cert-card">
-                    <h3>CEH v13 with AI</h3>
-                    <div class="cert-org">EC-Council</div>
-                    <p>Certified Ethical Hacker with AI integration focus</p>
-                    <div class="cert-year">2025</div>
-                </div>
-                
-                <div class="cert-card">
-                    <h3>CEH Master (Practical)</h3>
-                    <div class="cert-org">EC-Council</div>
-                    <p>Offensive Security & Red Teaming (In Progress)</p>
-                    <div class="cert-year">2025</div>
-                </div>
-                
-                <div class="cert-card">
-                    <h3>CompTIA Security+ (SY0-701)</h3>
-                    <div class="cert-org">DION Bootcamp</div>
-                    <p>Information Security & Risk Management</p>
-                    <div class="cert-year">2024</div>
-                </div>
+                        <a href="#" class="project-link"><i
