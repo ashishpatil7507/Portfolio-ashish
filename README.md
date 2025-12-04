@@ -32,3 +32,29 @@ A modern, animated, and fully responsive cybersecurity portfolio website with a 
 | GitHub Pages | Free hosting and deployment |
 
 ## 📂 Project Structure
+cybersecurity-portfolio/
+├── index.html # Main HTML file (all code in one file)
+├── README.md # Documentation (this file)
+└── (Optional assets folder for future enhancements)
+
+
+## 🚀 Quick Deployment Guide
+
+### Method 1: One-Click GitHub Pages
+1. **Fork** this repository to your GitHub account
+2. **Rename** repository to `yourusername.github.io`
+3. **Go to Settings** → **Pages** → **Select main branch** → **Save**
+4. **Wait 1-2 minutes** for deployment
+5. **Visit:** `https://yourusername.github.io`
+
+### Method 2: Manual Upload
+```bash
+# Clone or download the repository
+git clone https://github.com/ashishpatil7507/portfolio.git
+
+# Navigate to folder
+cd portfolio
+
+# Open index.html in browser
+open index.html  # macOS
+start index.html # Windows
